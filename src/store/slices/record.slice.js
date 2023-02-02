@@ -34,6 +34,22 @@ const recordSlice = createSlice({
                 });
             }
         },
+        resetSelectedRecord(state){
+            state.selectedRecord = {
+                id: '',
+                businessName: '',
+                businessType: '',
+                businessAddress: '',
+                ratingDate: '', 
+                rating: 0,
+                scoresHygiene: 0, 
+                scoresStructural: 0,
+            }
+        },
+        updateSelectedRecord(state, action){
+            state.selectedRecord = action.payload;
+            console.log(state.selectedRecord);
+        },
         clearRecords(state){
             state.records = [];
         },

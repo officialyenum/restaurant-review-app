@@ -38,3 +38,29 @@ export const searchRecords = (search) => {
         }
     }
 }
+
+export const getReviews = (id) => {
+    return async (dispatch) => {
+        const sendRequest = async () => {
+            const url = `test`;
+            const encodedUrl = encodeURI(url);
+            const resp = await fetch(encodedUrl);
+            if (!resp.ok) {
+                console.log(resp);
+                return
+            }
+
+            const data = await resp.json();
+            return data;
+        }
+
+        try {
+            const reviewData = await sendRequest();
+            dispatch(recordActions.clearReviews());
+            dispatch(recordActions.addToReviews(reviewData))
+            console.log("success");
+        } catch (error) {
+            console.log("error",error);
+        }
+    }
+}
