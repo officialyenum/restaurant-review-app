@@ -40,14 +40,19 @@
   --color-primary-700: #41c7fc;
   --color-primary-800: #28c2ff;
   --color-primary-900: #0cb6f9;
+
+  --header-fs: 32px;
+  --sub-header-fs: 24px;
+  --body-fs: 16px;
+  --caption-fs: 12px;
 }
 
 html {
   font-family: 'Noto Sans JP', sans-serif;
   min-height: 100%;
-  background: url(https://t3.ftcdn.net/jpg/02/21/40/16/360_F_221401603_6urJw6Di9KjlgcPgLfkdVLHtc5Q21aCx.jpg) rgba(255, 255, 255, 0.2);
+  background: url(https://t3.ftcdn.net/jpg/02/21/40/16/360_F_221401603_6urJw6Di9KjlgcPgLfkdVLHtc5Q21aCx.jpg);
   background-size: cover;
-  background-blend-mode: multiply;
+  background-blend-mode: overlay;
 }
 
 body {
@@ -65,12 +70,32 @@ main {
   text-align: center;
 }
 
-h1,
-h2,
-h3,
-a,
-div,
+h1 {
+  font-size: var(--heading-fs);
+  color: var(--color-primary-100);
+}
+h2 {
+  font-size: var(--sub-heading-fs);
+  color: var(--color-primary-100);
+}
+h3 {
+  font-size: var(--sub-heading-fs);
+  color: var(--color-primary-100);
+}
+a {
+  font-size: var(--caption-fs);
+  color: var(--color-primary-100);
+}
+span {
+  font-size: var(--caption-fs);
+  color: var(--color-primary-100);
+}
+div {
+  font-size: var(--sub-body-fs);
+  color: var(--color-primary-100);
+}
 p {
+  font-size: var(--body-fs);
   color: var(--color-primary-100);
 }
 

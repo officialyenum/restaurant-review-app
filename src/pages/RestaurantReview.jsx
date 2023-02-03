@@ -1,15 +1,26 @@
 import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
+import {Reviews , ReviewForm } from '../components/ReviewComponents';
+import { getRecordById } from '../store/actions/record.action';
 import classes from './RestaurantReview.module.css'
 
 const RestaurantReview = () => {
+    const navigate = useNavigate();
     const { id } = useParams();
     const record = useSelector((state) => state.record.selectedRecord)
+    const currentUser = useSelector((state) => state.auth.currentUser)
+    const dispatch = useDispatch();
+
     useEffect(() => {
-        console.log(id);
-        console.log(record);
-    }, [id, record])
+        console.log("load review");
+        dispatch(getRecordById(id));
+    }, [id, dispatch])
+
+    const goToLogin = () => {
+        navigate(`/login?ref=/review/${id}`)
+    }
+
     return (
         <main className={classes.review}>
             <div className={classes.profile}>
@@ -41,6 +52,18 @@ const RestaurantReview = () => {
                     <div className={classes.threads}> 15 reviews</div>
                 </div>
             </div>
+            {currentUser && (
+            <> 
+                <ReviewForm/>
+            </>
+            )}
+            {!currentUser && (
+                <div className={classes.loginBtn}>
+                    <button onClick={goToLogin}>Login To Drop a Review</button>
+                </div>
+            )}
+            <Reviews/>
+            
         </main>
     )
 }

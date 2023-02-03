@@ -8,7 +8,6 @@ const RecordCard = ({record}) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const showMore = () => {
-    console.log("clicked show more");
     dispatch(recordActions.updateSelectedRecord(record))
     if (record.businessName) {
       navigate(`/review/${record.id}`);
@@ -18,8 +17,8 @@ const RecordCard = ({record}) => {
     <>
         <div className={`${classes.panel} ${classes.active}`} onClick={showMore}>
             <div className={classes['setting-title']}>
-                <i className="fa-solid fa-user"></i>
-                <h3>{record.businessName} - {record.businessAddress}</h3>
+                <i className="fa-solid fa-cutlery"></i>
+                <p>{record.businessName} - {record.businessAddress}</p>
             </div>
             <div className={classes['setting-content']}>
                 Extra

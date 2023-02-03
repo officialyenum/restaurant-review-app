@@ -52,6 +52,11 @@
         height: 20px;
         cursor: pointer;
     }
+
+
+.loginBtn {
+  margin: 20px;
+}
   
   /* Content */
   

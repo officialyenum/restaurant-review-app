@@ -28,6 +28,12 @@
     cursor: pointer;
 }
 
+.login form button.loading {
+    cursor: not-allowed;
+    background-color: var(--color-gray-500);
+    color: var(--color-gray-300);
+}
+
 .login form span{
     width: 40vw;
     height: 30px;

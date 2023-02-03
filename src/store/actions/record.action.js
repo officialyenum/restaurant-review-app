@@ -5,7 +5,7 @@ export const searchRecords = (search) => {
     return async (dispatch) => {
 
         const sendRequest = async () => {
-            const url = `${process.env.REACT_APP_API_FRONT}"${search}"${process.env.REACT_APP_API_BACK}`;
+            const url = `${process.env.REACT_APP_API_GET_RECORDS_FRONT}"${search}"${process.env.REACT_APP_API_GET_RECORDS_BACK}`;
             const encodedUrl = encodeURI(url);
             const resp = await fetch(encodedUrl);
             if (!resp.ok) {
@@ -32,12 +32,47 @@ export const searchRecords = (search) => {
                         scoresStructural: data.record.fields.scores_structural,
                 }))
             });
-            console.log("success");
         } catch (error) {
             console.log("error",error);
         }
     }
 }
+
+export const getRecordById = (id) => {
+    return async (dispatch) => {
+
+        const sendRequest = async () => {
+            const url = process.env.REACT_APP_API_GET_RECORD_FRONT+ id + process.env.REACT_APP_API_GET_RECORD_BACK;
+            const encodedUrl = encodeURI(url);
+            const resp = await fetch(encodedUrl);
+            if (!resp.ok) {
+                console.log(resp);
+                return
+            }
+
+            const data = await resp.json();
+            return data;
+        }
+
+        try {
+            const recordData = await sendRequest();
+            console.log(recordData);
+            dispatch(recordActions.updateSelectedRecord({
+                id: recordData.record.id,
+                businessName: recordData.record.fields.businessname,
+                businessType: recordData.record.fields.businesstype,
+                businessAddress: recordData.record.fields.addressline3,
+                ratingDate: recordData.record.fields.ratingdate, 
+                rating: recordData.record.fields.rating, 
+                scoresHygiene: recordData.record.fields.scores_hygiene, 
+                scoresStructural: recordData.record.fields.scores_structural,
+            }));
+        } catch (error) {
+            console.log("error",error);
+        }
+    }
+}
+
 
 export const getReviews = (id) => {
     return async (dispatch) => {
@@ -58,7 +93,6 @@ export const getReviews = (id) => {
             const reviewData = await sendRequest();
             dispatch(recordActions.clearReviews());
             dispatch(recordActions.addToReviews(reviewData))
-            console.log("success");
         } catch (error) {
             console.log("error",error);
         }

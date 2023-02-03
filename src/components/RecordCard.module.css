@@ -12,31 +12,13 @@
   overflow: hidden;
 }
 
-.panel.active {
-    flex-grow: 5;
-}
 
 .setting-title {
   display: flex;
   margin: 12px 20px;
 }
 
-.setting-title h3 {
+.setting-title p {
   margin: 0 10px;
 }
 
-.panel.active .setting-title {
-  color: var(--color-primary-200);
-}
-
-.setting-content {
-  opacity: 0;
-  margin: 16px 20px;
-  line-height: 28px;
-  transition: opacity 0.2s ease-in;
-}
-
-.panel.active .setting-content {
-  opacity: 1;
-  transition: opacity 0.2s ease-in 0.3s;
-}

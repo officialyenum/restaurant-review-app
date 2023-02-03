@@ -4,7 +4,7 @@ import { db } from '../../library/firebase';
 import { doc, getDoc } from "firebase/firestore";
 
 export const transformAuthenticatedUser = (id) => {
-    console.log("id", id);
+    
     return async (dispatch) => {
 
         const transform = async (id) => {
@@ -28,9 +28,7 @@ export const transformAuthenticatedUser = (id) => {
 
         try {
             const authData = await transform(id);
-            console.log('authData', authData);
             dispatch(authActions.authenticateUser(authData));
-            console.log("success");
         } catch (error) {
             console.log("error",error);
         }

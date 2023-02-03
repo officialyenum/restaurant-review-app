@@ -48,7 +48,6 @@ const recordSlice = createSlice({
         },
         updateSelectedRecord(state, action){
             state.selectedRecord = action.payload;
-            console.log(state.selectedRecord);
         },
         clearRecords(state){
             state.records = [];
