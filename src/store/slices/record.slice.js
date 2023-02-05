@@ -22,7 +22,7 @@ const recordSlice = createSlice({
             const newRecord = action.payload;
             const existingRecord = state.records.find(record => record.id === newRecord.id);
             if (!existingRecord) {
-                state.records.push({
+                state.records.unshift({
                     id: newRecord.id,
                     businessName: newRecord.businessName,
                     businessType: newRecord.businessType,
@@ -47,10 +47,41 @@ const recordSlice = createSlice({
             }
         },
         updateSelectedRecord(state, action){
-            state.selectedRecord = action.payload;
+            const record = action.payload;
+            console.log(record);
+            state.selectedRecord = {
+                id: record.id,
+                businessName: record.businessName,
+                businessType: record.businessType,
+                businessAddress: record.businessAddress,
+                ratingDate: record.ratingDate, 
+                rating: record.rating, 
+                scoresHygiene: record.scoresHygiene, 
+                scoresStructural: record.scoresStructural,
+            };
         },
         clearRecords(state){
             state.records = [];
+        },
+        getSelectedRecordReviews(state, action){
+            state.selectedRecordReviews = action.payload;
+            state.selectedRecordReviews.sort(function(a,b){
+                return new Date(JSON.parse(b.timeStamp)) - new Date(JSON.parse(a.timeStamp));
+            });
+        },
+        addToSelectedRecordReview(state, action){
+            console.log(action.payload);
+            const newReview = action.payload;
+            const existingReview = state.selectedRecordReviews.find(review => review.id === newReview.id);
+            if (!existingReview) {
+                state.selectedRecordReviews.unshift(newReview);
+            }
+            state.selectedRecordReviews.sort(function(a,b){
+                return new Date(JSON.parse(b.timeStamp)) - new Date(JSON.parse(a.timeStamp));
+            });
+        },
+        clearRecordReviews(state){
+            state.selectedRecordReviews = [];
         },
     }
 });

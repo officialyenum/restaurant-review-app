@@ -8,7 +8,7 @@ const RecordCard = ({record}) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const showMore = () => {
-    dispatch(recordActions.updateSelectedRecord(record))
+    dispatch(recordActions.resetSelectedRecord());
     if (record.businessName) {
       navigate(`/review/${record.id}`);
     }

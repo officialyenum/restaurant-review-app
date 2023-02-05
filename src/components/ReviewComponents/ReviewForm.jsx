@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import classes from './ReviewForm.module.css'
-import { Star } from './Star';
+import { Star } from './Star'; 
+import { submitReview } from "../../store/actions/record.action";
 
 
-export const ReviewForm = () => {
+export const ReviewForm = ({ restaurantId }) => {
     const currentUser = useSelector(state => state.auth.currentUser);
     const [review, setReview] = useState("");
     const [stars, setStars] = useState([
@@ -25,9 +26,11 @@ export const ReviewForm = () => {
             color:'#808080'
         }
     ]);
+    const dispatch = useDispatch()
     const [rating, setRating] = useState(3);
-    const [counter, setCounter] = useState(10);
-    const [reviewError, setReviewError] = useState(false)
+    const [counter, setCounter] = useState(300);
+    const [formError, setFormError] = useState(false);
+    const [reviewError, setReviewError] = useState(false);
     
 
     const onClickStar = (num) => {
@@ -44,14 +47,14 @@ export const ReviewForm = () => {
               };
             }
         });
-        setRating(num + 1);
+        setRating(num);
         setStars(nextStars);
         console.log(stars);
     }
 
     const handleReviewChange = (e) => {
         setReview(e.target.value);
-        const newLength = 10 - review.length;
+        const newLength = 300 - review.length;
         setCounter(newLength);
         if (newLength < 0) {
             setReviewError(true);
@@ -59,20 +62,46 @@ export const ReviewForm = () => {
             setReviewError(false)
         }
     }
-    const handleReviewSubmit = (e) => {
+    const handleReviewSubmit = async (e) => {
         e.preventDefault();
         console.log(rating);
         console.log(review);
+        if (formAuthenticated() !== true) {
+            console.log(formAuthenticated());
+            setFormError(!formAuthenticated());
+            return;
+        }
+        // Add a new document in collection "cities"
+        console.log('rating:',rating);
+        console.log('handle Submit');
+        dispatch(submitReview(restaurantId,rating,review,stars,currentUser))
+        console.log('dispatch Submit');
+    }
+
+    const formAuthenticated = () =>{
+        if (!rating || rating > 5 || rating < 1) {
+            return 'Rating is required, and from 1 - 5 ';
+        }else if (!review || review.length < 0) {
+            return 'Error with your review, reviews cannot be empty or more than 300 characters';
+        }else if (!currentUser) {
+            return 'User Submitting is not logged in';
+        }else if (!restaurantId) {
+            return 'Error with restaurant id';
+        }else{
+            return true;
+        }
     }
     const errorClass = reviewError === true ? classes.error : "";
   return (
     <>
         <form className={classes['review-form']} onSubmit={handleReviewSubmit}>
             <h2>Write Your Review</h2>
+            {formError && <span className={classes.error}>{formError}</span>}
             <div className={classes.rating}>
                 {stars && stars.map((star,index) => (
                     <Star 
                         star={star}
+                        clickable={true}
                         onClick={onClickStar} 
                         key={index}
                     />
@@ -84,7 +113,7 @@ export const ReviewForm = () => {
             <h2>Your Review:</h2>
             <textarea rows="10" placeholder="Your Reivew" name="review" id="review" onChange={handleReviewChange} value={review}></textarea>
             <span className={classes['help-block']}>
-                <span className={errorClass}>{counter} Characters remaining </span> 
+                <span className={errorClass}>{counter} Characters remaining </span>
             </span>
             <h2>Your Info:</h2>
             <input readOnly type="text" placeholder="Name" name="name" id="name" defaultValue={currentUser?.fullName}/>

@@ -3,6 +3,12 @@
     height: 32px;
     transition: .6s all;
 }
+
+.star-small {
+  width: 16px;
+  height: 16px;
+  transition: .6s all;
+}
   .rating {
     cursor: pointer;
     display: inline-block

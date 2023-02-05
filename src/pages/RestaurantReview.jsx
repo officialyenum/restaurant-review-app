@@ -1,14 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import {Reviews , ReviewForm } from '../components/ReviewComponents';
 import { getRecordById } from '../store/actions/record.action';
-import classes from './RestaurantReview.module.css'
+import classes from './RestaurantReview.module.css';
+import moment from 'moment';
+moment().format();
 
 const RestaurantReview = () => {
     const navigate = useNavigate();
     const { id } = useParams();
     const record = useSelector((state) => state.record.selectedRecord)
+    const reviews = useSelector((state) => state.record.selectedRecordReviews)
     const currentUser = useSelector((state) => state.auth.currentUser)
     const dispatch = useDispatch();
 
@@ -16,6 +19,8 @@ const RestaurantReview = () => {
         console.log("load review");
         dispatch(getRecordById(id));
     }, [id, dispatch])
+
+    
 
     const goToLogin = () => {
         navigate(`/login?ref=/review/${id}`)
@@ -27,7 +32,7 @@ const RestaurantReview = () => {
                 <div className={classes['left-info']}>
                     <div className={classes['name-info']}>
                         <div className={classes.time}>
-                        Last Rated : {record?.ratingDate}
+                        Last Rated : {record.ratingDate ? `${moment().from(record.ratingDate, true)} ago` : "N/A"}
                         <span>
                             <i className={classes['global-icon']}></i>
                         </span>  
@@ -40,21 +45,21 @@ const RestaurantReview = () => {
             <div className={classes.content}>{record?.businessName} - {record?.businessAddress}</div>
             <div className={classes['review-wrapper']}>
                 <div className={classes['review-info']}>
-                    <div className={classes['review-name']}>Type of Business : {record?.businessType}</div>
-                    <div className={classes['review-name']}>Rating : {record?.rating}</div>
-                    <div className={classes['review-name']}>Hygiene Score : {record?.scoresHygiene}</div>
-                    <div className={classes['review-name']}>Structural Score : {record?.scoresStructural}</div>
+                    <div className={classes['review-name']}>Type of Business : {record.businessType !== null ? record.businessType: "N/A"}</div>
+                    <div className={classes['review-name']}>Rating : {record.rating !== null ? record.rating: "N/A"}</div>
+                    <div className={classes['review-name']}>Hygiene Score : {record.scoresHygiene !== null ? record.scoresHygiene: "N/A"}</div>
+                    <div className={classes['review-name']}>Structural Score : {record.scoresStructural !== null ? record.scoresStructural: "N/A"}</div>
                 </div>
             </div>
 
             <div className={classes['feedback-info']}>
                 <div className={classes['threads-and-share']}>
-                    <div className={classes.threads}> 15 reviews</div>
+                    <div className={classes.threads}> {reviews.length} reviews</div>
                 </div>
             </div>
             {currentUser && (
             <> 
-                <ReviewForm/>
+                <ReviewForm restaurantId={id}/>
             </>
             )}
             {!currentUser && (
@@ -62,7 +67,7 @@ const RestaurantReview = () => {
                     <button onClick={goToLogin}>Login To Drop a Review</button>
                 </div>
             )}
-            <Reviews/>
+            <Reviews restaurantId={id}/>
             
         </main>
     )

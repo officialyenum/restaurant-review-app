@@ -3,9 +3,9 @@ import classes from './Register.module.css'
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from '../library/firebase';
 import { useDispatch } from 'react-redux';
-import { authActions } from '../store/slices/auth.slice';
 import { doc, serverTimestamp, setDoc } from "firebase/firestore"; 
 import { useNavigate } from 'react-router-dom';
+import { transformAuthenticatedUser } from '../store/actions/auth.action';
 
 
 const Register = () => {
@@ -42,7 +42,8 @@ const Register = () => {
             email: email,
             timeStamp: serverTimestamp(),
         });
-        dispatch(authActions.authenticateUser(newUser))
+        console.log(newUser);
+        dispatch(transformAuthenticatedUser(user.uid));
         navigate('/');
     }
     return (
