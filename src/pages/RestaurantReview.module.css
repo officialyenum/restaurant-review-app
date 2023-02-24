@@ -1,112 +1,148 @@
 /* Header */
-    .review {
-        width: 80%;
-        background: var(--color-gray-900);
-        padding-bottom: 12px;
-        border: 1px solid var(--color-primary-500);
-        border-radius: 4px;
-    }
-    .review .profile{
-        display: flex;
-        justify-content:  space-between;
-        padding: 12px 12px;
-    }
-  
-    .review .profile .left-info {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-  
-    .review  .profile .left-info .name-info .name {
-        font-weight: bolder;
-        text-decoration: none;
-        color: var(--color-primary-900);
-    }
-  
-    .review .profile .left-info .name-info .time {
-        color: var(--color-gray-200);
-        font-size: 13px;
-        display: flex;
-    }
-    .review .profile .left-info .name-info .time span {
-        padding: 0px 10px;
-    }
-  
-    .review  .profile .left-info .name-info .time .global-icon {
-        width: 12px;
-        height: 12px;
-        background-position: -28px -499px;
-        background-image: url("https://weichiachang.github.io/easter-eggs-mobile/images/3o8Zo7X.png");
-        background-size: 73px 540px;
-        background-repeat: no-repeat;
-        display: inline-block;
-    }
-  
-    .review .profile .right-info {
-        background-image: url("https://weichiachang.github.io/easter-eggs-mobile/images/dNpCLDT.png");
-        background-repeat: no-repeat;
-        background-size: 500px 287px;
-        background-position: -242px -245px;
-        width: 20px;
-        height: 20px;
-        cursor: pointer;
-    }
+.review {
+  width: 80%;
+  background: var(--color-gray-900);
+  padding-bottom: 12px;
+  border: 1px solid var(--color-main);
+  border-radius: 4px;
+}
+.review .profile {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 12px;
+}
 
+.review .profile .left-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review .profile .left-info .name-info .name {
+  font-weight: bolder;
+  text-decoration: none;
+  color: var(--color-main);
+}
+
+.review .profile .left-info .name-info .time {
+  color: var(--color-gray-200);
+  font-size: 13px;
+  display: flex;
+}
+.review .profile .left-info .name-info .time span {
+  padding: 0px 10px;
+}
+
+.review .profile .left-info .name-info .time .global-icon {
+  width: 12px;
+  height: 12px;
+  background-position: -28px -499px;
+  background-image: url("https://weichiachang.github.io/easter-eggs-mobile/images/3o8Zo7X.png");
+  background-size: 73px 540px;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+.review .profile .right-info {
+  background-image: url("https://weichiachang.github.io/easter-eggs-mobile/images/dNpCLDT.png");
+  background-repeat: no-repeat;
+  background-size: 500px 287px;
+  background-position: -242px -245px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
 
 .loginBtn {
   margin: 20px;
 }
-  
-  /* Content */
-  
-  .review .content {
-    font-size: 20px;
-    font-weight: 300;
-    line-height: 20px;
-    margin: 12px 12px 7px;
-  }
-  
-  .review .review-wrapper {
-    display: flex;
-    flex-direction: column;
-    background: var(--color-primary-700);
-    width: 100%;
-    height: 139px;
-    border-top: 2px solid var(--color-primary-700);
-  }
 
-  
-  .review .review-wrapper .review-info {
-    padding: 10px 16px;
-    justify-content: center;
-    align-items: center;
-    border-top: 1px solid var(--color-primary-700);
-    border-bottom: 1px solid var(--color-primary-700);
-  }
-  
-  .review .review-wrapper .review-info .review-name {
-    color: var(--color-gray-800);
-    display: flex;
-    font-size: 13px;
-    font-weight: bold;
-    line-height: 24px;
-  }
+.loginBtn button {
+  width: 35%;
+  color: var(--color-main);
+  padding: 1rem;
+  background: none;
+  border: 1px solid var(--color-main);
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
 
-  
-  /* Feedback */
-  
-  .review .feedback-info {
-    display: flex;
-    justify-content: center;
-    border-bottom: 1px solid var(--color-gray-200);
-    margin: 10px 12px 0 12px;
-    padding: 0 0 10px 0;
-    color: var(--color-primary-700);
-  }
-  
-  
-  .review .feedback-info .threads-and-share {
-    font-size: 14px;
-  }
-  
+.loginBtn button:hover {
+  background: var(--color-main);
+  color: #fff;
+}
+
+.loginBtn2 {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 2rem 0px;
+}
+
+.loginBtn2 button {
+  width: 20%;
+  color: var(--color-main);
+  align-self: flex-end;
+  padding: 1rem;
+  background: none;
+  border: 1px solid var(--color-main);
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.loginBtn2 button:hover {
+  background: var(--color-main);
+  color: #fff;
+}
+
+/* Content */
+
+.review .content {
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 2rem 0px;
+  text-transform: uppercase;
+  color: var(--color-main);
+}
+
+.review .review-wrapper {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-main);
+  width: 100%;
+}
+
+.review .review-wrapper .review-info {
+  padding: 1rem;
+  /* justify-content: center;
+  align-items: center; */
+  /* margin-top: 2rem; */
+}
+
+.review .review-wrapper .review-info .review-name {
+  color: var(--color-gray-800);
+  display: flex;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 24px;
+}
+
+/* Feedback */
+
+.review .feedback-info {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid var(--color-gray-200);
+  margin: 10px 12px 0 12px;
+  padding: 0 0 10px 0;
+  color: var(--color-primary-700);
+}
+
+.review .feedback-info .threads-and-share {
+  font-size: 14px;
+}

@@ -1,60 +1,66 @@
-     
-.review{
-    display: grid;
-    grid-template-columns: 1fr;
-    border-radius: 10px;
-    border: 1px solid var(--color-primary-800);
-    background-color: var(--color-gray-800);
-    padding: 5px;
-    max-width: 540px;
-    min-height: 180px;
-    margin: auto;
+.review {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-radius: 0.2rem;
+  border: 1px solid var(--color-main);
+  /* background-color: var(--color-gray-800); */
+  padding: 5px;
+  width: 100%;
 }
 
-.image_review{
-    padding-top: 10px;
-    padding-left: 5px;
+.image_review {
+  padding-top: 10px;
+  padding-left: 5px;
 }
 
-
-.customer_image{
-    max-width: 50px;
-    max-width: 50px;
+.customer_image {
+  max-width: 50px;
+  max-width: 50px;
 }
 
-.customer_image img{
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-    float: left;
-    margin-right: 10px;
+.customer_image img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  float: left;
+  margin-right: 10px;
 }
 
-
-.customer_name{
-    font-family: Poppins;
-    font-weight: 700;
-    font-size: 16px;
-    margin-top: 0;
-    text-align: left;
-    color: #2e2a39;
-    margin-bottom: 0;
+.customer_name {
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 0;
+  text-align: left;
+  color: #2e2a39;
+  margin-bottom: 0;
 }
 
-.customer_name a{
-    text-decoration: none;
+.customer_review {
+  /* background: red; */
 }
 
-.customer_comment{
-    padding-left: 5px;
-    padding-top: 5px;
-    margin-bottom: 0;
-    font-size: var(--body-fs);
-    color: var(--color-primary-300);
-    margin-top: 3px;
-    font-family: Poppins;
-    font-weight: 300;
-    padding-right: 5px;
-    text-align: left;
-    font-style: italic;
+.customer_name a {
+  text-decoration: none;
+}
+
+.customer_comment {
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  padding-top: 5px;
+  margin-bottom: 0;
+  font-size: var(--body-fs);
+  color: var(--color-primary-300);
+  margin-top: 3px;
+  font-family: Poppins;
+  font-weight: 300;
+  padding-right: 5px;
+  text-align: left;
+  font-style: italic;
+}
+
+.customer_comment span {
+  margin-left: 1.1rem;
+  font-size: 1rem;
 }
