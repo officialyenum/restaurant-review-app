@@ -113,6 +113,41 @@ export const getReviewsByRestaurantId = (id) => {
     }
 }
 
+export const getReviewsByAuthUser = (id) => {
+    return async (dispatch) => {
+        dispatch(recordActions.clearRecordReviews);
+        const sendRequest = async () => {
+            const q = query(collection(db, "reviews"), where("user", "array-contains", { id: id}));
+            
+            const querySnapshot = await getDocs(q, orderBy('timeStamp','desc'), limit(10));
+            if (querySnapshot) {
+                querySnapshot.forEach((doc) => {
+                    console.log(doc.id, " => ", doc.data());
+                    const reviewData = {
+                        id: doc.id,
+                        restaurantId: doc.data().restaurantId,
+                        body: doc.data().body,
+                        stars: doc.data().stars,
+                        rating: doc.data().rating,
+                        user: doc.data().user,
+                        timeStamp: JSON.stringify(doc.data().timeStamp.toDate())
+                    }
+                    dispatch(recordActions.addToAuthUserReview(reviewData))
+                });
+                return querySnapshot
+            }else{
+                throw new Error('Does not exist');
+            }
+        }
+
+        try {
+            await sendRequest();
+        } catch (error) {
+            console.log("error",error);
+        }
+    }
+}
+
 export const submitReview = (restaurantId,rating,body,stars,user) => {
     return async (dispatch) => {
         const sendRequest = async () => {
