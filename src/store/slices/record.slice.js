@@ -15,7 +15,8 @@ const recordSlice = createSlice({
             scoresHygiene: 0, 
             scoresStructural: 0,
         },
-        selectedRecordReviews: []
+        selectedRecordReviews: [],
+        authUserReviews: [],
     },
     reducers: {
         addToRecords(state, action){
@@ -77,6 +78,17 @@ const recordSlice = createSlice({
                 state.selectedRecordReviews.unshift(newReview);
             }
             state.selectedRecordReviews.sort(function(a,b){
+                return new Date(JSON.parse(b.timeStamp)) - new Date(JSON.parse(a.timeStamp));
+            });
+        },
+        addToAuthUserReview(state, action){
+            console.log(action.payload);
+            const newReview = action.payload;
+            const existingReview = state.authUserReviews.find(review => review.id === newReview.id);
+            if (!existingReview) {
+                state.authUserReviews.unshift(newReview);
+            }
+            state.authUserReviews.sort(function(a,b){
                 return new Date(JSON.parse(b.timeStamp)) - new Date(JSON.parse(a.timeStamp));
             });
         },
