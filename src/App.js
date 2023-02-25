@@ -6,23 +6,25 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import RestaurantReview from "./pages/RestaurantReview";
 import RootLayout from "./pages/RootLayout";
+import UserProfile from "./pages/UserProfile";
 
 const router = createBrowserRouter([
-  { 
-    path: '/', 
-    element: <RootLayout/>,
-    errorElement:<Error/>,
+  {
+    path: "/",
+    element: <RootLayout />,
+    errorElement: <Error />,
     children: [
-      { path: '/', element: <Home/>},
-      { path: '/login', element: <Login/>},
-      { path: '/register', element: <Register/>},
-      { path: '/history', element: <History/>},
-      { path: '/review/:id', element: <RestaurantReview/>},
-    ]
-  }
+      { path: "/", element: <Home /> },
+      { path: "/login", element: <Login /> },
+      { path: "/register", element: <Register /> },
+      { path: "/history", element: <History /> },
+      { path: "/review/:id", element: <RestaurantReview /> },
+      { path: "/profile/:id", element: <UserProfile /> },
+    ],
+  },
 ]);
 function App() {
-  return  <RouterProvider router={router}/> ;
+  return <RouterProvider router={router} />;
 }
 
 export default App;

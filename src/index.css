@@ -55,6 +55,7 @@ html {
   background-blend-mode: overlay;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 body {

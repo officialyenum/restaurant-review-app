@@ -62,3 +62,9 @@
   opacity: 1;
   transition: opacity 0.2s ease-in 0.3s;
 }
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    width: 100%;
+  }
+}

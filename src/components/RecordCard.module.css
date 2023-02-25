@@ -33,3 +33,9 @@
   margin: 0 10px;
   color: #fff;
 }
+
+@media screen and (max-width: 600px) {
+  .panel {
+    width: 100%;
+  }
+}

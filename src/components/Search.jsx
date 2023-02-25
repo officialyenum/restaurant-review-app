@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { searchRecords } from "../store/actions/record.action";
-import RecordList from "./RecordList";
 import classes from "./Search.module.css";
 
 const Search = () => {

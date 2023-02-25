@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { authActions } from "../store/slices/auth.slice";
@@ -10,55 +10,71 @@ const MainNavigation = () => {
   const logoutHandler = () => {
     dispatch(authActions.logoutUser());
   };
+
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <header className={classes.header}>
-     <div className={classes.header_middle}>
-     <h2>
-     <NavLink to="/">Restaurant Review</NavLink>
-   </h2>
-   <nav>
-     <ul className={classes.list}>
-       <li>
-         <NavLink
-           to="/"
-           className={({ isActive }) =>
-             isActive ? classes.active : undefined
-           }
-         >
-           Home
-         </NavLink>
-       </li>
-       {currentUser && (
-         <li>
-           <button onClick={logoutHandler}>Logout</button>
-         </li>
-       )}
-       {!currentUser && (
-         <>
-           <li>
-             <NavLink
-               to="/login"
-               className={({ isActive }) =>
-                 isActive ? classes.active : undefined
-               }
-             >
-               Login
-             </NavLink>
-           </li>
-           <li>
-             <NavLink
-               to="/register"
-               className={({ isActive }) =>
-                 isActive ? classes.active : undefined
-               }
-             >
-               Register
-             </NavLink>
-           </li>
-         </>
-       )}
-     </ul>
-   </nav></div>
+      <div className={classes.header_middle}>
+        <h2>
+          <NavLink to="/">Restaurant Review</NavLink>
+        </h2>
+        <nav>
+          <div
+            className={classes.menuIconContainer}
+            onClick={() => setIsOpen(true)}
+          >
+            <i className="fa fa-search"></i>
+          </div>
+          <ul className={`${classes.list} ${isOpen ? classes.navOpen : ""}`}>
+            <div
+              className={classes.closeIconContainer}
+              onClick={() => setIsOpen(false)}
+            >
+              <i className="fa fa-search"></i>
+            </div>
+            <li>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? classes.active : undefined
+                }
+              >
+                Home
+              </NavLink>
+            </li>
+            {currentUser && (
+              <li>
+                <button onClick={logoutHandler}>Logout</button>
+              </li>
+            )}
+            {!currentUser && (
+              <>
+                <li>
+                  <NavLink
+                    to="/login"
+                    className={({ isActive }) =>
+                      isActive ? classes.active : undefined
+                    }
+                  >
+                    Login
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/register"
+                    className={({ isActive }) =>
+                      isActive ? classes.active : undefined
+                    }
+                  >
+                    Register
+                  </NavLink>
+                </li>
+              </>
+            )}
+          </ul>
+        </nav>
+      </div>
     </header>
   );
 };

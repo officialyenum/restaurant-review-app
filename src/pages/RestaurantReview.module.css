@@ -146,3 +146,22 @@
 .review .feedback-info .threads-and-share {
   font-size: 14px;
 }
+
+@media screen and (max-width: 600px) {
+  .review {
+    width: 95%;
+  }
+
+  .loginBtn button {
+    width: 90%;
+  }
+
+  .loginBtn2 {
+    padding-right: 1rem;
+    width: 100%;
+  }
+
+  .loginBtn2 button {
+    width: 50%;
+  }
+}

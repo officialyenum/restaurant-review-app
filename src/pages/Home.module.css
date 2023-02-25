@@ -16,3 +16,18 @@
   font-size: 1.5rem;
   color: var(--color-gray-200);
 }
+
+@media screen and (max-width: 600px) {
+  .homeWrapper {
+    width: 95%;
+  }
+
+  .home {
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+  }
+
+  .homeSmall {
+    font-size: 1.2rem;
+  }
+}
