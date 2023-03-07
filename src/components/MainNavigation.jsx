@@ -44,10 +44,22 @@ const MainNavigation = () => {
               </NavLink>
             </li>
             {currentUser && (
-              <li>
+             <>
+          <li>
+             <NavLink
+               to="/reviews"
+               className={({ isActive }) =>
+                 isActive ? classes.active : undefined
+               }
+             >
+               Reviews
+             </NavLink>
+           </li>
+         <li>
                 <button onClick={logoutHandler}>Logout</button>
               </li>
-            )}
+             </>
+       )}
             {!currentUser && (
               <>
                 <li>

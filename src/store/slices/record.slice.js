@@ -95,6 +95,10 @@ const recordSlice = createSlice({
         clearRecordReviews(state){
             state.selectedRecordReviews = [];
         },
+        clearReviews(state){
+            state.reviews = [];
+            console.log(state.reviews);
+        },
     }
 });
 
