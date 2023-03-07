@@ -153,12 +153,13 @@ export const getLatestTenReviews = () => {
     return async (dispatch) => {
         dispatch(recordActions.clearRecordReviews);
         const sendRequest = async () => {
+            const q = query(collection(db, "reviews"), limit(10));
 
-            const q = query(collection(db, "reviews"), orderBy('timestamp'), limit(10));
-            // const q = query(collection(db, "reviews"), where("restaurantId", "==", id));
             const querySnapshot = await getDocs(q);
+            
             if (querySnapshot) {
                 querySnapshot.forEach((doc) => {
+                    console.log(doc.data());
                     console.log(doc.id, " => ", doc.data());
                     const reviewData = {
                         id: doc.id,
@@ -169,6 +170,7 @@ export const getLatestTenReviews = () => {
                         user: doc.data().user,
                         timeStamp: JSON.stringify(doc.data().timeStamp.toDate())
                     }
+                    console.log(reviewData);
                     dispatch(recordActions.addToSelectedRecordReview(reviewData))
                 });
                 return querySnapshot

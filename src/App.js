@@ -21,6 +21,7 @@ const router = createBrowserRouter([
       { path: '/register', element: <Register/>},
       { path: '/history', element: <History/>},
       { path: '/review/:id', element: <RestaurantReview/>},
+      { path: '/profile', element: <UserProfile/>},
     ]
   }
 ]);

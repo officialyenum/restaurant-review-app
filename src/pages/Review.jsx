@@ -8,6 +8,7 @@ const Review = () => {
   const reviews = useSelector((state) => state.record.selectedRecordReviews);
   const dispatch = useDispatch();
   useEffect(() => {
+    console.log('working');
     dispatch(getLatestTenReviews());
   }, [dispatch])
   return (
