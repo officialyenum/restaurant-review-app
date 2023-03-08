@@ -3,7 +3,6 @@ import { getReviewsByAuthUser } from "./record.action";
 
 import { db } from '../../library/firebase';
 import { doc, getDoc } from "firebase/firestore";
-import { recordActions } from "../slices/record.slice";
 
 export const transformAuthenticatedUser = (id) => {
     

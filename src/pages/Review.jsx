@@ -18,7 +18,7 @@ const Review = () => {
           Latest Reviews.
         </h2>
       </div>
-      {reviews && (<ReviewsList reviews={reviews} />)}
+      {reviews && (<ReviewsList reviews={reviews} showRestaurant={true} />)}
       
     </>
   );

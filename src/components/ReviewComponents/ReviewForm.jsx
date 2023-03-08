@@ -5,7 +5,7 @@ import { Star } from "./Star";
 import { submitReview } from "../../store/actions/record.action";
 import { ActivityIndicator } from "../Feedback";
 
-export const ReviewForm = ({ restaurantId }) => {
+export const ReviewForm = ({ record }) => {
   const currentUser = useSelector((state) => state.auth.currentUser);
   const [review, setReview] = useState("");
   const [stars, setStars] = useState([
@@ -79,7 +79,7 @@ export const ReviewForm = ({ restaurantId }) => {
     // Add a new document in collection "cities"
     console.log("rating:", rating);
     console.log("handle Submit");
-    dispatch(submitReview(restaurantId, rating, review, stars, currentUser));
+    dispatch(submitReview(record, rating, review, stars, currentUser));
     console.log("dispatch Submit");
     setLoading(false);
   };
@@ -91,8 +91,8 @@ export const ReviewForm = ({ restaurantId }) => {
       return "Error with your review, reviews cannot be empty or more than 300 characters";
     } else if (!currentUser) {
       return "User Submitting is not logged in";
-    } else if (!restaurantId) {
-      return "Error with restaurant id";
+    } else if (!record) {
+      return "Error with restaurant";
     } else {
       return true;
     }

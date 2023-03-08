@@ -10,10 +10,10 @@ const Home = () => {
     <>
       <div className={classes.homeWrapper}>
         <h2 className={classes.home}>
-          Find the best restaurants in bristol.
+          Restaurant Hygiene Review.
         </h2>
         <p className={classes.homeSmall}>
-          Search for a restaurant and leave a review
+          Search Restaurants for Hygiene, Structure, Rating scores and Reviews.
         </p>
         <Search />
       </div>

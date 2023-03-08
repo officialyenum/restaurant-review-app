@@ -17,7 +17,7 @@ const MainNavigation = () => {
     <header className={classes.header}>
       <div className={classes.header_middle}>
         <h2>
-          <NavLink to="/">Restaurant Review</NavLink>
+          <NavLink to="/">Restaurant Hygiene Review</NavLink>
         </h2>
         <nav>
           <div

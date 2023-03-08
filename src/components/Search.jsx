@@ -22,7 +22,7 @@ const Search = () => {
         <input
           type="text"
           className={classes.searchTerm}
-          placeholder="Search By Restaurant Name or Name ?"
+          placeholder="Search By Restaurant Name or Location in bristol ?"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
