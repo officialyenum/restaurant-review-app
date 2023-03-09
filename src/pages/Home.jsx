@@ -20,8 +20,8 @@ const Home = () => {
         <h1 className={classes.header}>Restaurants In Bristol</h1>
         <RecordList records={records} isSearch={false} />
       </div>
-      <ContactUsHome />
-      <Testimonials />
+      {/* <ContactUsHome /> */}
+      {/* <Testimonials /> */}
     </div>
   );
 };
