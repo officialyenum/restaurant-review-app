@@ -36,6 +36,18 @@
   text-transform: uppercase;
 }
 
+.col a {
+  display: block;
+  color: var(--primary-white);
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.col a:hover {
+  color: var(--color-main);
+}
+
 .icon_flex {
   display: flex;
   align-items: center;
@@ -69,4 +81,19 @@
   .col {
     width: 100%;
   }
+}
+
+.follow_section .icon {
+  margin: 0px 1rem;
+  font-size: 1.1rem;
+}
+
+.follow_section .icon svg {
+  cursor: pointer;
+  transition: 0.3s ease;
+  color: var(--primary-white);
+}
+
+.follow_section .icon svg:hover {
+  color: var(--color-main);
 }

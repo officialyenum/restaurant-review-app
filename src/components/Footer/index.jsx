@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import classes from "./Footer.module.css";
 
 export const Footer = () => {
@@ -8,7 +9,7 @@ export const Footer = () => {
       <div className={classes.container}>
         <div className={classes.col}>
           <div className={classes.logo_container}>
-            <h1>LOGO</h1>
+            <h1>Restaurant Hygiene Review</h1>
           </div>
           <p className={classes.about_company}>
             about the restaurant review ap
@@ -17,25 +18,23 @@ export const Footer = () => {
         <div className={classes.col}>
           <h3 className={classes.col_header}>Contact Us</h3>
           <div className={classes.icon_flex}>
-            <em>Icon</em>
-            <p>1234 Some St San Francisco, CA 94102, US 1.800.123.4567</p>
+            <i class="fa-solid fa-location-dot"></i>
+            <p>Location Here</p>
           </div>
           <div className={classes.icon_flex}>
-            <em>Icon</em>
-            <p>1234 Some St San Francisco, CA 94102, US 1.800.123.4567</p>
+            <i class="fa-solid fa-phone"></i>
+            <p>Phone Number Here</p>
           </div>
           <div className={classes.icon_flex}>
-            <em>Icon</em>
-            <p>support@axiomthemes.com</p>
+            <i class="fa-solid fa-envelope"></i>
+            <p>Email address Here</p>
           </div>
         </div>
         <div className={classes.col}>
           <h3 className={classes.col_header}>Navigation Links</h3>
-          <p>Home</p>
-          <p>About Us</p>
-          <p>Contact Us</p>
-          <p>Login</p>
-          <p>Register</p>
+          <Link to="/">Home</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/register">Register</Link>
         </div>
       </div>
       <div className={classes.copyright_bottom}>
@@ -45,10 +44,18 @@ export const Footer = () => {
           </div>
           <div className={classes.follow_section}>
             <p>Follow Us: </p>
-            <em>icon</em>
-            <em>icon</em>
-            <em>icon</em>
-            <em>icon</em>
+            <a href="##" target="_blank" className={classes.icon}>
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="##" target="_blank" className={classes.icon}>
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a href="##" target="_blank" className={classes.icon}>
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="##" target="_blank" className={classes.icon}>
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
           </div>
         </div>
       </div>

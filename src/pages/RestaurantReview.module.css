@@ -2,13 +2,126 @@
 .review {
   width: 80%;
   margin: 0 auto;
-  /* background: var(--color-gray-900); */
+  background: var(--primary-white);
   margin-top: 9rem;
   margin-bottom: 3rem;
   padding-bottom: 12px;
-  border: 1px solid var(--color-main);
   border-radius: 4px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
 }
+
+.restaurantProfile {
+  width: 100%;
+}
+
+.restaurantNameAndLastRated {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 1rem;
+}
+
+.restaurantNameAndLastRated h2 {
+  text-transform: capitalize;
+  font-size: 1.3rem;
+  color: var(--color-main);
+}
+
+.res_image {
+  width: 100%;
+  height: 20rem;
+}
+
+.res_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.restaurantNameAndLastRated p span {
+  margin-left: 1rem;
+}
+
+.hygiene_cards {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem 1rem;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0px;
+  margin-top: -1.5rem;
+  padding: 0px 1rem;
+}
+.location h2 {
+  margin-left: 1rem;
+  font-size: 1rem;
+}
+
+.hygiene_card {
+  width: 32%;
+  min-height: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 0.3rem;
+  padding: 1rem;
+  background-color: var(--primary-white);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.hygiene_card h1 {
+  text-transform: uppercase;
+}
+
+.hygiene_card svg {
+  color: var(--color-main);
+  font-size: 1.5rem;
+}
+
+.starWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.starWrapper svg {
+  font-size: 1.1rem;
+}
+
+.threads {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--color-main);
+  font-size: 2rem;
+}
+
+.drop_review_button {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.closeButton button {
+  background-color: red;
+}
+
+.closeButton button:hover {
+  border-color: red;
+  color: red;
+  background-color: transparent;
+}
+
+/* 
 .review .profile {
   display: flex;
   justify-content: space-between;
@@ -36,7 +149,7 @@
   padding: 0px 10px;
 }
 
-.review .profile .left-info .name-info .time .global-icon {
+.global-icon {
   width: 12px;
   height: 12px;
   background-position: -28px -499px;
@@ -102,7 +215,6 @@
   color: #fff;
 }
 
-/* Content */
 
 .review .content {
   font-size: 1.4rem;
@@ -122,9 +234,6 @@
 
 .review .review-wrapper .review-info {
   padding: 1rem;
-  /* justify-content: center;
-  align-items: center; */
-  /* margin-top: 2rem; */
 }
 
 .review .review-wrapper .review-info .review-name {
@@ -135,7 +244,6 @@
   line-height: 24px;
 }
 
-/* Feedback */
 
 .review .feedback-info {
   display: flex;
@@ -167,4 +275,4 @@
   .loginBtn2 button {
     width: 50%;
   }
-}
+} */

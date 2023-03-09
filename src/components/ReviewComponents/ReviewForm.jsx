@@ -5,7 +5,7 @@ import { Star } from "./Star";
 import { submitReview } from "../../store/actions/record.action";
 import { ActivityIndicator } from "../Feedback";
 
-export const ReviewForm = ({ record }) => {
+export const ReviewForm = ({ record, closeReviewForm }) => {
   const currentUser = useSelector((state) => state.auth.currentUser);
   const [review, setReview] = useState("");
   const [stars, setStars] = useState([
@@ -81,6 +81,7 @@ export const ReviewForm = ({ record }) => {
     console.log("handle Submit");
     dispatch(submitReview(record, rating, review, stars, currentUser));
     console.log("dispatch Submit");
+    closeReviewForm();
     setLoading(false);
   };
 
@@ -99,7 +100,7 @@ export const ReviewForm = ({ record }) => {
   };
   const errorClass = reviewError === true ? classes.error : "";
   return (
-    <>
+    <div>
       <form className={classes["review-form"]} onSubmit={handleReviewSubmit}>
         <h2>Write Your Review</h2>
         {formError && <span className={classes.error}>{formError}</span>}
@@ -147,6 +148,6 @@ export const ReviewForm = ({ record }) => {
           name and review on the web. (email will not be shared)
         </span>
       </form>
-    </>
+    </div>
   );
 };
