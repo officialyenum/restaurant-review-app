@@ -46,7 +46,7 @@ const Search = ({ handleClose }) => {
           <input
             type="text"
             className={classes.searchTerm}
-            placeholder="Search By Restaurant Name or Name ?"
+            placeholder="Search By Restaurant Name or Location ?"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />

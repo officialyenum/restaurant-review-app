@@ -12,7 +12,7 @@ export const Welcome = () => {
         <div className={classes.rightContainer}>
           <h1>
             <span>Welcome</span>
-            <br /> to Restaurant Review
+            <br /> to Restaurant Hygiene Review in Bristol
           </h1>
           <p>
             Lorem ipsum dolor sit amet. In quia laudantium eos unde ipsum et
