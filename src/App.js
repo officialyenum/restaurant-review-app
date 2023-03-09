@@ -5,7 +5,9 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import RestaurantReview from "./pages/RestaurantReview";
+import Review from "./pages/Review";
 import RootLayout from "./pages/RootLayout";
+import { SearchResult } from "./pages/SearchResult";
 import UserProfile from "./pages/UserProfile";
 
 const router = createBrowserRouter([
@@ -16,10 +18,12 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/login", element: <Login /> },
+      { path: "/reviews", element: <Review /> },
       { path: "/register", element: <Register /> },
       { path: "/history", element: <History /> },
       { path: "/review/:id", element: <RestaurantReview /> },
-      { path: "/profile/:id", element: <UserProfile /> },
+      { path: "/profile", element: <UserProfile /> },
+      { path: "/search", element: <SearchResult /> },
     ],
   },
 ]);

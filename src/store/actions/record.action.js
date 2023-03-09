@@ -49,18 +49,15 @@ export const getRecordById = (id) => {
             const encodedUrl = encodeURI(url);
             const resp = await fetch(encodedUrl);
             if (!resp.ok) {
-                console.log(resp);
                 return
             }
 
             const data = await resp.json();
-            console.log(data.record);
             return data;
         }
 
         try {
             const recordData = await sendRequest();
-            console.log(recordData.record);
             dispatch(recordActions.updateSelectedRecord({
                 id: recordData.record.id,
                 businessName: recordData.record.fields.businessname,
@@ -72,6 +69,8 @@ export const getRecordById = (id) => {
                 scoresStructural: recordData.record.fields.scores_structural,
             }));
         } catch (error) {
+
+            dispatch(recordActions.resetSelectedRecord());
             console.log("error",error);
         }
     }
@@ -82,21 +81,26 @@ export const getReviewsByRestaurantId = (id) => {
     return async (dispatch) => {
         dispatch(recordActions.clearRecordReviews);
         const sendRequest = async () => {
-            const q = query(collection(db, "reviews"), where("restaurantId", "==", id));
-            
+            const q = query(collection(db, 'reviews'), where('restaurantId', '==', id));
+
+            // const q = query(collection(db, "reviews"), limit(10));
             const querySnapshot = await getDocs(q, orderBy('timeStamp','desc'), limit(10));
             if (querySnapshot) {
                 querySnapshot.forEach((doc) => {
-                    console.log(doc.id, " => ", doc.data());
+                    // console.log(doc.id, " => ", doc.data());
+                    console.log(doc.id);
                     const reviewData = {
                         id: doc.id,
                         restaurantId: doc.data().restaurantId,
+                        restaurant: doc.data().restaurant,
                         body: doc.data().body,
                         stars: doc.data().stars,
                         rating: doc.data().rating,
+                        userId: doc.data().userId,
                         user: doc.data().user,
                         timeStamp: JSON.stringify(doc.data().timeStamp.toDate())
                     }
+                    console.log(reviewData);
                     dispatch(recordActions.addToSelectedRecordReview(reviewData))
                 });
                 return querySnapshot
@@ -117,7 +121,7 @@ export const getReviewsByAuthUser = (id) => {
     return async (dispatch) => {
         dispatch(recordActions.clearRecordReviews);
         const sendRequest = async () => {
-            const q = query(collection(db, "reviews"), where("user", "array-contains", { id: id}));
+            const q = query(collection(db, 'reviews'), where('userId', '==', id));
             
             const querySnapshot = await getDocs(q, orderBy('timeStamp','desc'), limit(10));
             if (querySnapshot) {
@@ -126,9 +130,11 @@ export const getReviewsByAuthUser = (id) => {
                     const reviewData = {
                         id: doc.id,
                         restaurantId: doc.data().restaurantId,
+                        restaurant: doc.data().restaurant,
                         body: doc.data().body,
                         stars: doc.data().stars,
                         rating: doc.data().rating,
+                        userId: doc.data().userId,
                         user: doc.data().user,
                         timeStamp: JSON.stringify(doc.data().timeStamp.toDate())
                     }
@@ -148,16 +154,58 @@ export const getReviewsByAuthUser = (id) => {
     }
 }
 
-export const submitReview = (restaurantId,rating,body,stars,user) => {
+export const getLatestTenReviews = () => {
+    return async (dispatch) => {
+        dispatch(recordActions.clearRecordReviews);
+        const sendRequest = async () => {
+            const q = query(collection(db, "reviews"), limit(10));
+
+            const querySnapshot = await getDocs(q);
+            
+            if (querySnapshot) {
+                querySnapshot.forEach((doc) => {
+                    console.log(doc.data());
+                    console.log(doc.id, " => ", doc.data());
+                    const reviewData = {
+                        id: doc.id,
+                        restaurantId: doc.data().restaurantId,
+                        restaurant: doc.data().restaurant,
+                        body: doc.data().body,
+                        stars: doc.data().stars,
+                        rating: doc.data().rating,
+                        userId: doc.data().userId,
+                        user: doc.data().user,
+                        timeStamp: JSON.stringify(doc.data().timeStamp.toDate())
+                    }
+                    console.log(reviewData);
+                    dispatch(recordActions.addToSelectedRecordReview(reviewData))
+                });
+                return querySnapshot
+            }else{
+                throw new Error('Does not exist');
+            }
+        }
+
+        try {
+            await sendRequest();
+        } catch (error) {
+            console.log("error",error);
+        }
+    }
+}
+
+export const submitReview = (record,rating,body,stars,user) => {
     return async (dispatch) => {
         const sendRequest = async () => {
             console.log('reviewData:',body);
             // Add a new document with a generated id.
             const newReview = await addDoc(collection(db, "reviews"), {
-                restaurantId:restaurantId,
+                restaurantId:record.id,
+                restaurant:record,
                 rating:rating,
                 body:body,
                 stars:stars,
+                userId:user.id,
                 user:user,
                 timeStamp: serverTimestamp()
             });
@@ -168,9 +216,11 @@ export const submitReview = (restaurantId,rating,body,stars,user) => {
                 const reviewData = {
                     id: newReview.id,
                     restaurantId:docSnap.data().restaurantId,
+                    restaurant:docSnap.data().restaurant,
                     rating:docSnap.data().rating,
                     body:docSnap.data().body,
                     stars:docSnap.data().stars,
+                    userId:docSnap.data().userId,
                     user:docSnap.data().user,
                     timeStamp: JSON.stringify(docSnap.data().timeStamp.toDate())
                 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { searchRecords } from "../store/actions/record.action";
 import { ActivityIndicator } from "./Feedback";
 import classes from "./Search.module.css";
@@ -9,7 +10,10 @@ const Search = ({ handleClose }) => {
   const [response, setResponse] = useState({});
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const searchHandler = async () => {
+    handleChildClick();
     setLoading(true);
     if (!search || search === "") {
       setResponse("Search is Empty");
@@ -19,10 +23,12 @@ const Search = ({ handleClose }) => {
     dispatch(searchRecords(search));
     setTimeout(() => {
       handleClose();
+      navigate("/search");
       setLoading(false);
     }, 4000);
     setResponse("Success");
   };
+
   console.log(response);
 
   const handleParentClick = (e) => {
@@ -54,7 +60,7 @@ const Search = ({ handleClose }) => {
         </div>
       </div>
       <div className={classes.closeButton} onClick={handleChildClick}>
-        <i className="fa fa-close"></i>
+        <i className="fa fa-close" onClick={handleChildClick}></i>
       </div>
     </div>
   );

@@ -4,5 +4,9 @@ import RecordList from "../components/RecordList";
 
 export const SearchResult = () => {
   const records = useSelector((state) => state.record.records);
-  return <RecordList records={records} isSearch={true} />;
+  return (
+    <div style={{ marginTop: "5rem" }}>
+      <RecordList records={records} isSearch={true} />
+    </div>
+  );
 };

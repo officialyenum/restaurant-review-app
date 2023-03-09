@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { Reviews, ReviewForm } from "../components/ReviewComponents";
-import { getRecordById } from "../store/actions/record.action";
+import { getRecordById, getReviewsByRestaurantId } from "../store/actions/record.action";
 import classes from "./RestaurantReview.module.css";
 import moment from "moment";
 moment().format();
@@ -19,6 +19,7 @@ const RestaurantReview = () => {
   useEffect(() => {
     console.log("load review");
     dispatch(getRecordById(id));
+    dispatch(getReviewsByRestaurantId(id));
   }, [id, dispatch]);
 
   const goToLogin = () => {
@@ -81,7 +82,7 @@ const RestaurantReview = () => {
       )}
       {currentUser && showReviewForm && (
         <>
-          <ReviewForm restaurantId={id} />
+          <ReviewForm record={record} />
         </>
       )}
       {!currentUser && (

@@ -5,7 +5,7 @@ import { Star } from "./Star";
 import moment from "moment";
 moment().format();
 
-export const Review = ({ review }) => {
+export const Review = ({ review, showRestaurant }) => {
   const date = new Date(JSON.parse(review.timeStamp));
   const fromDate = moment().from(date, true);
   console.log(date);
@@ -27,16 +27,37 @@ export const Review = ({ review }) => {
               </NavLink>
             </div>
           </div>
-        </div>
-        <div className={classes["customer_comment"]}>
-          <div className={classes["customer_review"]}>
-            {review &&
-              review?.stars.map((star, index) => (
-                <Star star={star} size={"sm"} clickable={false} key={index} />
-              ))}
           </div>
-          <span>{review.body}</span>
-        </div>
+            <div className={classes["customer_comment"]}>
+              
+            <div className={classes["customer_review"]}>
+              {review &&
+                  review?.stars.map((star, index) => (
+                    <Star star={star} size={"sm"} clickable={false} key={index} />
+                  ))}
+            </div>
+            <span>{review.body}</span>
+          </div>
+          {showRestaurant && (
+            <>
+                <div className={classes["customer_comment"]}>
+                  <div className={classes["customer_review"]}>
+                    Business Name :
+                  </div>
+
+                  <NavLink to={`/review/${review?.restaurant.id}`}>
+                    <span>{review.restaurant.businessName}</span>
+                  </NavLink>
+                </div>
+                <div className={classes["customer_comment"]}>
+                  <div className={classes["customer_review"]}>
+                    Business Address :
+                  </div>
+                  <span>{review.restaurant.businessAddress}</span>
+                </div>
+            </>
+          )}
+        
       </div>
     </>
   );
