@@ -10,11 +10,11 @@ export const Hero = () => {
       <div className={classes.wrapper}>
         <div className={classes.container}>
           <p className={classes.small}>
-            The most reliable reviews for any restaurant in the world
+            The most reliable reviews for restaurants in Bristol
           </p>
           <h1>
-            Discover <span>Restaurants</span> around you and find the best that{" "}
-            <span>suits</span> your taste
+            Discover <span>Reviews</span> for <span>Restaurants</span> around
+            <span> Bristol</span>
           </h1>
           <div>
             <button onClick={() => setShowSearch(true)}>Search</button>

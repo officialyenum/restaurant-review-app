@@ -12,8 +12,8 @@ const Search = ({ handleClose }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const searchHandler = async () => {
-    handleChildClick();
+  const searchHandler = async (e) => {
+    handleChildClick(e);
     setLoading(true);
     if (!search || search === "") {
       setResponse("Search is Empty");
@@ -21,11 +21,9 @@ const Search = ({ handleClose }) => {
       return;
     }
     dispatch(searchRecords(search));
-    setTimeout(() => {
-      handleClose();
-      navigate("/search");
-      setLoading(false);
-    }, 4000);
+    handleClose();
+    navigate("/search");
+    setLoading(false);
     setResponse("Success");
   };
 

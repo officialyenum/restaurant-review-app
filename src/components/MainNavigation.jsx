@@ -46,7 +46,7 @@ const MainNavigation = () => {
               </li>
               {currentUser && (
                 <li>
-                  <button onClick={logoutHandler}>Logout</button>
+                  <div onClick={logoutHandler}>Logout</div>
                 </li>
               )}
               {!currentUser && (
