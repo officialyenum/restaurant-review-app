@@ -31,3 +31,12 @@
     font-size: 1.2rem;
   }
 }
+
+.header {
+  color: var(--color-main);
+  font-size: 2rem;
+}
+
+.top_restaurants_container {
+  padding: 3rem 0px;
+}

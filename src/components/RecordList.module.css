@@ -68,3 +68,10 @@
     width: 100%;
   }
 }
+
+.none {
+  font-size: 1.3rem;
+  text-align: center;
+  color: var(--blue-2);
+  width: 100%;
+}

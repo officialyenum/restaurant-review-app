@@ -1,0 +1,72 @@
+.wrapper {
+  width: 100%;
+  background-color: var(--blue-1);
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.logo_container {
+}
+
+.logo_container h1 {
+  font-size: 1.3rem;
+}
+
+.about_company {
+  font-size: 0.8rem;
+  /* color: blue; */
+}
+
+.col {
+  width: 30%;
+  color: var(--primary-white);
+  /* background: yellow; */
+}
+
+.col_header {
+  color: var(--color-main);
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+
+.icon_flex {
+  display: flex;
+  align-items: center;
+}
+
+.icon_flex p {
+  margin-left: 1rem;
+}
+
+.copyright_bottom {
+  width: 100%;
+  background: var(--blue-2);
+}
+
+.copyright_bottom_container {
+  color: var(--primary-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.follow_section {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  .col {
+    width: 100%;
+  }
+}

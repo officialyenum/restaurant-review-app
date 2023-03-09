@@ -13,15 +13,24 @@ const RecordCard = ({ record }) => {
       navigate(`/review/${record.id}`);
     }
   };
+  function randomIntFromInterval(min, max) {
+    // min and max included
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
+  const rndInt = randomIntFromInterval(1, 3);
   return (
     <div className={`${classes.panel} ${classes.active}`} onClick={showMore}>
+      <div className={classes.image_wrapper}>
+        <img src={require(`../assets/res_${rndInt}.webp`)} alt="restaurant" />{" "}
+      </div>
       <div className={classes["setting-title"]}>
         <i className="fa-solid fa-cutlery"></i>
         <p>
           {record.businessName} - {record.businessAddress}
         </p>
       </div>
-      <div className={classes["setting-content"]}>Extra</div>
+      {/**<div className={classes["setting-content"]}>Extra</div> */}
     </div>
   );
 };

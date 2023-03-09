@@ -14,68 +14,70 @@ const MainNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className={classes.header}>
-      <div className={classes.header_middle}>
-        <h2>
-          <NavLink to="/">Restaurant Review</NavLink>
-        </h2>
-        <nav>
-          <div
-            className={classes.menuIconContainer}
-            onClick={() => setIsOpen(true)}
-          >
-            <i className="fa fa-search"></i>
-          </div>
-          <ul className={`${classes.list} ${isOpen ? classes.navOpen : ""}`}>
+    <div className={classes.wrapper}>
+      <header className={classes.header}>
+        <div className={classes.header_middle}>
+          <h2>
+            <NavLink to="/">Restaurant Review</NavLink>
+          </h2>
+          <nav>
             <div
-              className={classes.closeIconContainer}
-              onClick={() => setIsOpen(false)}
+              className={classes.menuIconContainer}
+              onClick={() => setIsOpen(true)}
             >
               <i className="fa fa-search"></i>
             </div>
-            <li>
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive ? classes.active : undefined
-                }
+            <ul className={`${classes.list} ${isOpen ? classes.navOpen : ""}`}>
+              <div
+                className={classes.closeIconContainer}
+                onClick={() => setIsOpen(false)}
               >
-                Home
-              </NavLink>
-            </li>
-            {currentUser && (
+                <i className="fa fa-search"></i>
+              </div>
               <li>
-                <button onClick={logoutHandler}>Logout</button>
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    isActive ? classes.active : undefined
+                  }
+                >
+                  Home
+                </NavLink>
               </li>
-            )}
-            {!currentUser && (
-              <>
+              {currentUser && (
                 <li>
-                  <NavLink
-                    to="/login"
-                    className={({ isActive }) =>
-                      isActive ? classes.active : undefined
-                    }
-                  >
-                    Login
-                  </NavLink>
+                  <button onClick={logoutHandler}>Logout</button>
                 </li>
-                <li>
-                  <NavLink
-                    to="/register"
-                    className={({ isActive }) =>
-                      isActive ? classes.active : undefined
-                    }
-                  >
-                    Register
-                  </NavLink>
-                </li>
-              </>
-            )}
-          </ul>
-        </nav>
-      </div>
-    </header>
+              )}
+              {!currentUser && (
+                <>
+                  <li>
+                    <NavLink
+                      to="/login"
+                      className={({ isActive }) =>
+                        isActive ? classes.active : undefined
+                      }
+                    >
+                      Login
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/register"
+                      className={({ isActive }) =>
+                        isActive ? classes.active : undefined
+                      }
+                    >
+                      Register
+                    </NavLink>
+                  </li>
+                </>
+              )}
+            </ul>
+          </nav>
+        </div>
+      </header>
+    </div>
   );
 };
 

@@ -9,10 +9,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: var(--color-gray-900);
+  background: var(--primary-white);
   padding: 1.5rem;
   border-radius: 0.25rem;
   width: 30%;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .login form h1 {
@@ -28,7 +29,7 @@
   height: 30px;
   margin-bottom: 1rem;
   background: none;
-  border: 1px solid var(--color-gray-500);
+  border: 1px solid var(--blue-1);
   padding: 1.3rem;
   border-radius: 0.2rem;
 }
@@ -49,15 +50,14 @@
 
 .login form button:hover {
   background: var(--color-main);
-  border: 1px solid var(--color-gray-900);
+  border: 1px solid var(--color-main);
   color: #fff;
 }
 
 .login form button.loading {
   cursor: not-allowed;
-  background-color: var(--color-gray-800);
+  background-color: var(--color-main);
   border: 1px solid #fff;
-  color: var(--color-gray-300);
 }
 
 .login form span {

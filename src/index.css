@@ -5,14 +5,14 @@
 }
 
 :root {
-  font-family: "PT Sans Caption", sans-serif;
+  font-family: "Playfair Display", serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* color: rgba(255, 255, 255, 0.87); */
+  /* background-color: #242424; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -40,7 +40,10 @@
   --color-primary-800: #28c2ff;
   --color-primary-900: #0cb6f9;
 
-  --color-main: #ff9416;
+  --color-main: #ffb606;
+  --primary-white: #fff;
+  --blue-1: #131230;
+  --blue-2: #0d0d27;
 
   --header-fs: 32px;
   --sub-header-fs: 24px;
@@ -50,16 +53,12 @@
 
 html {
   min-height: 100vh;
-  background: url(./assets/background.jpg);
-  background-size: cover;
-  background-blend-mode: overlay;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 body {
+  color: #000;
   margin: 0;
+  background-color: #fafafa;
 }
 
 ul {
@@ -69,35 +68,28 @@ ul {
 }
 
 main {
-  margin: 2rem auto;
+  /* margin: 2rem auto; */
   text-align: center;
 }
 
 h1 {
   font-size: var(--heading-fs);
-  color: var(--color-primary-100);
 }
 h2 {
   font-size: var(--sub-heading-fs);
-  color: var(--color-primary-100);
 }
 h3 {
   font-size: var(--sub-heading-fs);
-  color: var(--color-primary-100);
 }
 a {
   font-size: var(--caption-fs);
-  color: var(--color-primary-100);
 }
 span {
   font-size: var(--caption-fs);
-  color: var(--color-primary-100);
 }
 div {
   font-size: var(--sub-body-fs);
-  color: var(--color-primary-100);
 }
 p {
   font-size: var(--body-fs);
-  color: var(--color-primary-100);
 }

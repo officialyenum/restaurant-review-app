@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./spinner.module.css";
 
 export const ActivityIndicator = ({
-  color = "#ff9416",
+  color = "#131230",
   size = 30,
   className,
   style,

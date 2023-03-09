@@ -1,24 +1,28 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { ContactUsHome } from "../components/ContactUsHome";
+import { Hero } from "../components/Hero";
 import RecordList from "../components/RecordList";
-import Search from "../components/Search";
+import { Testimonials } from "../components/Testimonials";
+import { Welcome } from "../components/Welcome";
 import classes from "./Home.module.css";
 
 const Home = () => {
   const records = useSelector((state) => state.record.records);
+
+  // const displayRecords = records.length > 0 ? records?.splice(0, 3) : [];
+
   return (
-    <>
-      <div className={classes.homeWrapper}>
-        <h2 className={classes.home}>
-          Find the best restaurants in bristol.
-        </h2>
-        <p className={classes.homeSmall}>
-          Search for a restaurant and leave a review
-        </p>
-        <Search />
+    <div>
+      <Hero />
+      <Welcome />
+      <ContactUsHome />
+      <div className={classes.top_restaurants_container}>
+        <h1 className={classes.header}>Top Restaurants Close to you</h1>
+        <RecordList records={records} isSearch={false} />
       </div>
-      <RecordList records={records} />
-    </>
+      <Testimonials />
+    </div>
   );
 };
 

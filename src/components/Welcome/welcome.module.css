@@ -1,0 +1,38 @@
+.wrapper {
+  width: 100%;
+  padding: 2rem 0px;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.leftContainer {
+  width: 45%;
+}
+
+.leftContainer img {
+  width: 100%;
+  height: 100%;
+}
+
+.rightContainer {
+  width: 55%;
+  text-align: left;
+}
+
+.rightContainer h1 span {
+  font-size: 2rem;
+  font-style: italic;
+  color: var(--color-main);
+}
+
+.rightContainer h1 {
+  font-size: 2rem;
+  line-height: 2.3rem;
+}
