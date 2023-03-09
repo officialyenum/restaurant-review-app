@@ -16,11 +16,11 @@ const Home = () => {
     <div>
       <Hero />
       <Welcome />
-      <ContactUsHome />
       <div className={classes.top_restaurants_container}>
         <h1 className={classes.header}>Restaurants In Bristol</h1>
         <RecordList records={records} isSearch={false} />
       </div>
+      <ContactUsHome />
       <Testimonials />
     </div>
   );
