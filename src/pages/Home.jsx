@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Hero } from "../components/Hero";
 import RecordList from "../components/RecordList";
-import { Testimonials } from "../components/Testimonials";
+// import { Testimonials } from "../components/Testimonials";
 import { Welcome } from "../components/Welcome";
 import classes from "./Home.module.css";
 
@@ -19,7 +19,6 @@ const Home = () => {
         <h1 className={classes.header}>Restaurants In Bristol</h1>
         <RecordList records={records} isSearch={false} />
       </div>
-      <Testimonials />
     </div>
   );
 };

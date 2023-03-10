@@ -18,7 +18,7 @@ const MainNavigation = () => {
       <header className={classes.header}>
         <div className={classes.header_middle}>
           <h2>
-            <NavLink to="/">Restaurant Hygiene Review</NavLink>
+            <NavLink to="/">Food Hygiene Review</NavLink>
           </h2>
           <nav>
             <div
@@ -42,6 +42,16 @@ const MainNavigation = () => {
                   }
                 >
                   Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/reviews"
+                  className={({ isActive }) =>
+                    isActive ? classes.active : undefined
+                  }
+                >
+                  Reviews
                 </NavLink>
               </li>
               {currentUser && (

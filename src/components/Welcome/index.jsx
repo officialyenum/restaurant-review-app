@@ -14,18 +14,7 @@ export const Welcome = () => {
             <span>Welcome</span>
             <br /> to Restaurant Hygiene Review in Bristol
           </h1>
-          <p>
-            Lorem ipsum dolor sit amet. In quia laudantium eos unde ipsum et
-            ullam iste aut obcaecati modi et optio ipsam. Qui voluptas iure non
-            beatae impedit rem reiciendis obcaecati. Aut dignissimos labore in
-            mollitia accusantium et architecto quas. Aut consectetur officia et
-            cupiditate voluptas vel cupiditate commodi eos nemo facere est Quis
-            nesciunt. A eius laudantium ea aperiam Quis cum suscipit ducimus vel
-            molestiae omnis eum sapiente perspiciatis et mollitia optio et
-            debitis pariatur. Ut sequi minus quo similique unde ut iusto sunt ea
-            temporibus error et aperiam cumque. Et doloremque iusto ea dolores
-            voluptatem ea repudiandae voluptas nam magni voluptas.
-          </p>
+          <p>To enhance food hygiene and safety across restaurants in Bristol City by ensuring diners are given access for FSA scheme ratings about restaurants in Bristol City. While allowing them to drop reviews/ratings that are visible to be shared on social media and back to the FSA for updates.s</p>
         </div>
       </div>
     </div>
