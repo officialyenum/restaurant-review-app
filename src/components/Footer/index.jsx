@@ -12,7 +12,7 @@ export const Footer = () => {
             <h1>Food Hygiene Review</h1>
           </div>
           <p className={classes.about_company}>
-            About the review ap
+            To enhance food hygiene and safety across restaurants in Bristol City by ensuring diners are given access for FSA scheme ratings about restaurants in Bristol City. While allowing them to drop reviews/ratings that are visible to be shared on social media and back to the FSA for updates.
           </p>
         </div>
         <div className={classes.col}>
