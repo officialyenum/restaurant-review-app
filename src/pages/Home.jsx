@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { ContactUsHome } from "../components/ContactUsHome";
 import { Hero } from "../components/Hero";
 import RecordList from "../components/RecordList";
 import { Testimonials } from "../components/Testimonials";
@@ -20,7 +19,6 @@ const Home = () => {
         <h1 className={classes.header}>Restaurants In Bristol</h1>
         <RecordList records={records} isSearch={false} />
       </div>
-      <ContactUsHome />
       <Testimonials />
     </div>
   );

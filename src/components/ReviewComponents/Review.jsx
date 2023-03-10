@@ -6,7 +6,7 @@ import moment from "moment";
 moment().format();
 
 export const Review = ({ review, showRestaurant }) => {
-  const date = new Date(JSON.parse(review.timeStamp));
+  const date = new Date(JSON.parse(review?.timeStamp ?? '""'));
   const fromDate = moment().from(date, true);
   return (
     <div>
@@ -33,22 +33,22 @@ export const Review = ({ review, showRestaurant }) => {
                 <Star star={star} size={"sm"} clickable={false} key={index} />
               ))}
           </div>
-          <span>{review.body}</span>
+          <span>{review?.body}</span>
         </div>
         {showRestaurant && (
           <>
             <div className={classes["customer_comment"]}>
               <div className={classes["customer_review"]}>Business Name :</div>
 
-              <NavLink to={`/review/${review?.restaurant.id}`}>
-                <span>{review.restaurant.businessName}</span>
+              <NavLink to={`/review/${review?.restaurant?.id}`}>
+                <span>{review?.restaurant?.businessName}</span>
               </NavLink>
             </div>
             <div className={classes["customer_comment"]}>
               <div className={classes["customer_review"]}>
                 Business Address :
               </div>
-              <span>{review.restaurant.businessAddress}</span>
+              <span>{review?.restaurant?.businessAddress}</span>
             </div>
           </>
         )}

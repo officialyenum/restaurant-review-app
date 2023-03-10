@@ -10,7 +10,7 @@ export const StarRating = ({ rating }) => {
         isFilled ? (
           <i class="fa-solid fa-star" key={index}></i>
         ) : (
-          <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star" key={index}></i>
         )
       )}
     </div>

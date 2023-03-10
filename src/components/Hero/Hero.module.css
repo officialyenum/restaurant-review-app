@@ -68,3 +68,13 @@ button:hover {
   border: 1px solid var(--color-main);
   color: var(--color-main);
 }
+
+@media screen and (max-width: 600px) {
+  .container h1 {
+    max-width: 95%;
+  }
+
+  button {
+    width: 75%;
+  }
+}

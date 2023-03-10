@@ -1,54 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { getLatestTenReviews } from "../../store/actions/record.action";
+import { Review } from "../ReviewComponents";
 import classes from "./Testimonials.module.css";
-import { Star } from "../ReviewComponents";
 
 export const Testimonials = () => {
-  const reviews = [
-    {
-      name: "Test User",
-      image:
-        "https://st3.depositphotos.com/6672868/13701/v/600/depositphotos_137014128-stock-illustration-user-profile-icon.jpg",
-      stars: [1, 2, 3, 4, 5],
-      body: "Test some description",
-    },
-    {
-      name: "Test User",
-      image:
-        "https://st3.depositphotos.com/6672868/13701/v/600/depositphotos_137014128-stock-illustration-user-profile-icon.jpg",
-      stars: [1, 2, 3, 4, 5],
-      body: "Test some description",
-    },
-    {
-      name: "Test User",
-      image:
-        "https://st3.depositphotos.com/6672868/13701/v/600/depositphotos_137014128-stock-illustration-user-profile-icon.jpg",
-      stars: [1, 2, 3, 4, 5],
-      body: "Test some description",
-    },
-    {
-      name: "Test User",
-      image:
-        "https://st3.depositphotos.com/6672868/13701/v/600/depositphotos_137014128-stock-illustration-user-profile-icon.jpg",
-      stars: [1, 2, 3, 4, 5],
-      body: "Test some description",
-    },
-    {
-      name: "Test User",
-      image:
-        "https://st3.depositphotos.com/6672868/13701/v/600/depositphotos_137014128-stock-illustration-user-profile-icon.jpg",
-      stars: [1, 2, 3, 4, 5],
-      body: "Test some description",
-    },
-    {
-      name: "Test User",
-      image:
-        "https://st3.depositphotos.com/6672868/13701/v/600/depositphotos_137014128-stock-illustration-user-profile-icon.jpg",
-      stars: [1, 2, 3, 4, 5],
-      body: "Test some description",
-    },
-  ];
+  const reviews = useSelector((state) => state.record.selectedRecordReviews);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getLatestTenReviews());
+  }, [dispatch]);
+
+  console.log("reviews", reviews);
   return (
     <div className={classes.container}>
       <div className={classes.wrapper}>
@@ -62,29 +27,14 @@ export const Testimonials = () => {
             interval={5000}
             infiniteLoop
             showStatus={false}
+            showThumbs={false}
+            showIndicators={false}
+            centerSlidePercentage={90}
             // emulateTouch
           >
-            {reviews.map((review, _idx) => (
-              <div className={classes.slide} key={_idx}>
-                <div className={classes.user_container}>
-                  <div className={classes.user_image}>
-                    <img src={review?.image} alt={review?.name} />
-                  </div>
-                  <p>{review?.name}</p>
-                </div>
-                <p className={classes.review_body}>{`"${review?.body}"`}</p>
-                <div className={classes.stars}>
-                  {review?.stars.map((star, index) => (
-                    <Star
-                      star={star}
-                      size={"sm"}
-                      clickable={false}
-                      key={index}
-                    />
-                  ))}
-                </div>
-              </div>
-            ))}
+            {reviews?.length > 0
+              ? reviews?.map((review, _idx) => <Review review={review} />)
+              : "No Reviews Found"}
           </Carousel>
         </div>
       </div>

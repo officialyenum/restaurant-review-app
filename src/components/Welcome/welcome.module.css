@@ -36,3 +36,17 @@
   font-size: 2rem;
   line-height: 2.3rem;
 }
+
+@media screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .leftContainer {
+    width: 100%;
+  }
+  .rightContainer {
+    width: 100%;
+  }
+}

@@ -66,6 +66,10 @@
     right: 1rem;
   }
 
+  .closeIconContainer svg {
+    color: red;
+  }
+
   .list {
     position: fixed;
     flex-direction: column;
@@ -80,6 +84,10 @@
     z-index: 100000;
   }
 
+  .wrapper {
+    margin-top: 0.3rem;
+  }
+
   .navOpen {
     right: 0;
   }
@@ -88,12 +96,17 @@
     display: flex;
   }
 
+  .header {
+    padding: 0px 1rem;
+    width: 98%;
+  }
+
   .header_middle {
     width: 95%;
     /* background: blue; */
   }
 
   .header h2 a {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 }

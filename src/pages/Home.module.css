@@ -40,3 +40,13 @@
 .top_restaurants_container {
   padding: 3rem 0px;
 }
+
+@media screen and (max-width: 600px) {
+  .top_restaurants_container {
+    padding: 1.5rem 0px;
+  }
+
+  .header {
+    font-size: 1.3rem;
+  }
+}

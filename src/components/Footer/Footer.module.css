@@ -81,6 +81,10 @@
   .col {
     width: 100%;
   }
+
+  .copyright_bottom_container {
+    flex-direction: column-reverse;
+  }
 }
 
 .follow_section .icon {

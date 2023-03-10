@@ -67,6 +67,10 @@
   .wrapper {
     width: 100%;
   }
+
+  .container {
+    width: 90%;
+  }
 }
 
 .none {

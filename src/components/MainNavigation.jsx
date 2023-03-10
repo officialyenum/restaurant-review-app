@@ -25,14 +25,14 @@ const MainNavigation = () => {
               className={classes.menuIconContainer}
               onClick={() => setIsOpen(true)}
             >
-              <i className="fa fa-search"></i>
+              <i class="fa-solid fa-bars"></i>
             </div>
             <ul className={`${classes.list} ${isOpen ? classes.navOpen : ""}`}>
               <div
                 className={classes.closeIconContainer}
                 onClick={() => setIsOpen(false)}
               >
-                <i className="fa fa-search"></i>
+                <i class="fa-solid fa-xmark"></i>
               </div>
               <li>
                 <NavLink
