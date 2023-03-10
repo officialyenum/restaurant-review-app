@@ -20,3 +20,10 @@
   font-size: 1.5rem;
   color: var(--color-gray-200);
 }
+
+@media screen and (max-width: 600px) {
+  .reviewWrapper {
+    width: 98%;
+    padding: 0.3rem;
+  }
+}

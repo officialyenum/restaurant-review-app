@@ -74,7 +74,8 @@
     position: fixed;
     flex-direction: column;
     width: 60%;
-    background: var(--color-gray-900);
+    background: var(--primary-white);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     height: 100%;
     align-items: center;
     padding-top: 20vh;
