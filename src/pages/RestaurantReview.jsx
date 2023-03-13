@@ -21,10 +21,10 @@ const RestaurantReview = () => {
   const [showReviewForm, setShowReviewForm] = useState(false);
 
   useEffect(() => {
-    console.log("load review");
     dispatch(getRecordById(id));
     dispatch(getReviewsByRestaurantId(id));
-  }, [id, dispatch]);
+    console.log(record);
+  }, [id, record, dispatch]);
 
   const goToLogin = () => {
     navigate(`/login?ref=/review/${id}`);

@@ -78,7 +78,7 @@ export const getRecordById = (id) => {
 
 export const getReviewsByRestaurantId = (id) => {
     return async (dispatch) => {
-        dispatch(recordActions.clearRecordReviews);
+        // dispatch(recordActions.clearRecordReviews);
         const sendRequest = async () => {
             const q = query(collection(db, 'reviews'), where('restaurantId', '==', id));
 
