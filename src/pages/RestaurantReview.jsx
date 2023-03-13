@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { Reviews, ReviewForm, Star } from "../components/ReviewComponents";
+import { Reviews, ReviewForm } from "../components/ReviewComponents";
 import {
   getRecordById,
   getReviewsByRestaurantId,

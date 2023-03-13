@@ -121,3 +121,28 @@
   color: red;
   background-color: transparent;
 }
+
+@media screen and (max-width: 600px) {
+  .review {
+    width: 92%;
+  }
+  .restaurantNameAndLastRated {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .location {
+    margin-top: 0.5rem;
+  }
+
+  .hygiene_card {
+    width: 100%;
+  }
+
+  .threads {
+    margin-top: 3rem;
+  }
+
+  .drop_review_button {
+    width: 100%;
+  }
+}

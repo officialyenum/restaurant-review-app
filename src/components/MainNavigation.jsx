@@ -37,6 +37,7 @@ const MainNavigation = () => {
               <li>
                 <NavLink
                   to="/"
+                  onClick={() => setIsOpen(false)}
                   className={({ isActive }) =>
                     isActive ? classes.active : undefined
                   }
@@ -47,6 +48,7 @@ const MainNavigation = () => {
               <li>
                 <NavLink
                   to="/reviews"
+                  onClick={() => setIsOpen(false)}
                   className={({ isActive }) =>
                     isActive ? classes.active : undefined
                   }
@@ -55,7 +57,7 @@ const MainNavigation = () => {
                 </NavLink>
               </li>
               {currentUser && (
-                <li>
+                <li onClick={() => setIsOpen(false)}>
                   <div onClick={logoutHandler}>Logout</div>
                 </li>
               )}
@@ -64,6 +66,7 @@ const MainNavigation = () => {
                   <li>
                     <NavLink
                       to="/login"
+                      onClick={() => setIsOpen(false)}
                       className={({ isActive }) =>
                         isActive ? classes.active : undefined
                       }
@@ -73,6 +76,7 @@ const MainNavigation = () => {
                   </li>
                   <li>
                     <NavLink
+                      onClick={() => setIsOpen(false)}
                       to="/register"
                       className={({ isActive }) =>
                         isActive ? classes.active : undefined
