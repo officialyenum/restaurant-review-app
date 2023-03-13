@@ -69,26 +69,29 @@ const RestaurantReview = () => {
             <div className={classes.hygiene_card}>
               <i class="fa-solid fa-star"></i>
               <h1>Rating</h1>
-              {record?.rating}
-              <div className={classes.starWrapper}>
-                <StarRating rating={record?.rating} />
-              </div>
+              {record.rating && (
+                <div className={classes.starWrapper}>
+                  <StarRating rating={record?.rating} />
+                </div>
+              )}
             </div>
             <div className={classes.hygiene_card}>
               <i class="fa-solid fa-hands-holding-circle"></i>
               <h1>Hygiene Score</h1>
-              {record?.scoresHygiene}
-              <div className={classes.starWrapper}>
-                <StarRating rating={record?.scoresHygiene} />
-              </div>
+              {record.scoresHygiene && (
+                <div className={classes.starWrapper}>
+                  <StarRating rating={record?.scoresHygiene} />
+                </div>
+              )}
             </div>
             <div className={classes.hygiene_card}>
               <i className="fa fa-search"></i>
               <h1>Structural Score</h1>
-              {record?.scoresStructural}
-              <div className={classes.starWrapper}>
-                <StarRating rating={record?.scoresStructural} />
-              </div>
+              {record.scoresStructural && (
+                <div className={classes.starWrapper}>
+                  <StarRating rating={record?.scoresStructural} />
+                </div>
+              )}
             </div>
           </div>
           <div className={classes.threads}>{reviews.length} Reviews</div>
