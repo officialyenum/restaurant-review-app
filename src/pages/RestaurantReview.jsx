@@ -70,7 +70,7 @@ const RestaurantReview = () => {
               <i class="fa-solid fa-star"></i>
               <h1>Rating</h1>
               {record.rating}
-              {record.rating && (
+              {record.rating >= 0 && (
                 <div className={classes.starWrapper}>
                   <StarRating rating={record?.rating} />
                 </div>
@@ -80,7 +80,7 @@ const RestaurantReview = () => {
               <i class="fa-solid fa-hands-holding-circle"></i>
               <h1>Hygiene Score</h1>
               {record.scoresHygiene}
-              {record.scoresHygiene && (
+              {record.scoresHygiene >= 0 && (
                 <div className={classes.starWrapper}>
                   <StarRating rating={record?.scoresHygiene} />
                 </div>
@@ -90,8 +90,7 @@ const RestaurantReview = () => {
               <i className="fa fa-search"></i>
               <h1>Structural Score</h1>
               {record.scoresStructural}
-              {record.scoresStructural && (
-
+              {record.scoresStructural >= 0 && (
                 <div className={classes.starWrapper}>
                   <StarRating rating={record?.scoresStructural} />
                 </div>
