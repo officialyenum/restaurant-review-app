@@ -23,12 +23,14 @@ const RestaurantReview = () => {
   useEffect(() => {
     dispatch(getRecordById(id));
     dispatch(getReviewsByRestaurantId(id));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   const goToLogin = () => {
     navigate(`/login?ref=/review/${id}`);
   };
+
+  console.log(record);
 
   function randomIntFromInterval(min, max) {
     // min and max included
@@ -43,6 +45,10 @@ const RestaurantReview = () => {
         <div className={classes.res_image}>
           <img src={require(`../assets/res_${rndInt}.webp`)} alt="restaurant" />
         </div>
+        <p className={classes.disclaimer}>
+          Disclaimer: Images provided here are just placeholders and are in no
+          way linked to the mentioned restaurant
+        </p>
         <div className={classes.restaurantProfile}>
           <div className={classes.restaurantNameAndLastRated}>
             <h2>{record?.businessName}</h2>
@@ -69,7 +75,7 @@ const RestaurantReview = () => {
             <div className={classes.hygiene_card}>
               <i class="fa-solid fa-star"></i>
               <h1>Rating</h1>
-              {record?.rating}
+              <h2>{record?.rating}</h2>
               <div className={classes.starWrapper}>
                 <StarRating rating={record?.rating} />
               </div>
@@ -77,7 +83,7 @@ const RestaurantReview = () => {
             <div className={classes.hygiene_card}>
               <i class="fa-solid fa-hands-holding-circle"></i>
               <h1>Hygiene Score</h1>
-              {record?.scoresHygiene}
+              <h2>{record?.scoresHygiene}</h2>
               <div className={classes.starWrapper}>
                 <StarRating rating={record?.scoresHygiene} />
               </div>
@@ -85,7 +91,7 @@ const RestaurantReview = () => {
             <div className={classes.hygiene_card}>
               <i className="fa fa-search"></i>
               <h1>Structural Score</h1>
-              {record?.scoresStructural}
+              <h2>{record?.scoresStructural}</h2>
               <div className={classes.starWrapper}>
                 <StarRating rating={record?.scoresStructural} />
               </div>

@@ -23,6 +23,10 @@ const RecordCard = ({ record }) => {
     <div className={`${classes.panel} ${classes.active}`} onClick={showMore}>
       <div className={classes.image_wrapper}>
         <img src={require(`../assets/res_${rndInt}.webp`)} alt="restaurant" />{" "}
+        <p className={classes.disclaimer}>
+          Disclaimer: Images provided here are just placeholders and are in no
+          way linked to the mentioned restaurant
+        </p>
       </div>
       <div className={classes["setting-title"]}>
         <i className="fa-solid fa-cutlery"></i>
