@@ -43,7 +43,7 @@ export const searchRecords = (search) => {
 
 export const getRecordById = (id) => {
     return async (dispatch) => {
-
+        dispatch(recordActions.resetSelectedRecord());
         const sendRequest = async () => {
             const url = process.env.REACT_APP_API_GET_RECORD_FRONT+ id + process.env.REACT_APP_API_GET_RECORD_BACK;
             const encodedUrl = encodeURI(url);
@@ -69,7 +69,6 @@ export const getRecordById = (id) => {
                 scoresStructural: recordData.record.fields.scores_structural,
             }));
         } catch (error) {
-
             dispatch(recordActions.resetSelectedRecord());
             console.log("error",error);
         }
@@ -79,7 +78,7 @@ export const getRecordById = (id) => {
 
 export const getReviewsByRestaurantId = (id) => {
     return async (dispatch) => {
-        dispatch(recordActions.clearRecordReviews);
+        // dispatch(recordActions.clearRecordReviews);
         const sendRequest = async () => {
             const q = query(collection(db, 'reviews'), where('restaurantId', '==', id));
 

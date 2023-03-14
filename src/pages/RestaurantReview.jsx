@@ -21,9 +21,9 @@ const RestaurantReview = () => {
   const [showReviewForm, setShowReviewForm] = useState(false);
 
   useEffect(() => {
-    console.log("load review");
     dispatch(getRecordById(id));
     dispatch(getReviewsByRestaurantId(id));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   const goToLogin = () => {
