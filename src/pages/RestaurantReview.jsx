@@ -24,7 +24,7 @@ const RestaurantReview = () => {
     console.log("load review");
     dispatch(getRecordById(id));
     dispatch(getReviewsByRestaurantId(id));
-  }, [id, dispatch]);
+  }, [id]);
 
   const goToLogin = () => {
     navigate(`/login?ref=/review/${id}`);
