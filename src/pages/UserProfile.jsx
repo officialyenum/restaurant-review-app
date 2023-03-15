@@ -13,15 +13,25 @@ const UserProfile = () => {
 
   const dispatch = useDispatch();
   const reviews = useSelector((state) => state.record.authUserReviews);
-  console.log(reviews);
+  // console.log("reviews", reviews);
   useEffect(() => {
     dispatch(getReviewsByAuthUser(id));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
+  console.log("user_name", reviews[0]?.user.fullName);
+  console.log("user_id", id);
+
+  const currentUser = useSelector((state) => state.auth.currentUser);
+  console.log(currentUser);
+  const isCurrentUserProfile = id === currentUser?.id;
 
   return (
     <div className={classes.wrapper}>
-      <h1 style={{ marginBottom: "2rem", fontSize: "2rem" }}>My Reviews</h1>
+      <h1 style={{ marginBottom: "2rem", fontSize: "2rem" }}>
+        {isCurrentUserProfile
+          ? "My Reviews"
+          : `${reviews[0]?.user?.fullName ?? ""} Reviews`}
+      </h1>
       {reviews.length > 0 ? (
         <div className={classes["review-thread"]}>
           {reviews.map((review, _idx) => (

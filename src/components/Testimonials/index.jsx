@@ -13,7 +13,7 @@ export const Testimonials = () => {
     dispatch(getLatestTenReviews());
   }, [dispatch]);
 
-  console.log("reviews", reviews);
+  // console.log("reviews", reviews);
   return (
     <div className={classes.container}>
       <div className={classes.wrapper}>

@@ -27,8 +27,6 @@ const Search = ({ handleClose }) => {
     setResponse("Success");
   };
 
-  console.log(response);
-
   const handleParentClick = (e) => {
     handleClose();
   };

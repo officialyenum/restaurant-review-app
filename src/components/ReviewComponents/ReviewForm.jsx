@@ -53,7 +53,6 @@ export const ReviewForm = ({ record, closeReviewForm }) => {
     });
     setRating(num);
     setStars(nextStars);
-    console.log(stars);
   };
 
   const handleReviewChange = (e) => {
@@ -69,18 +68,16 @@ export const ReviewForm = ({ record, closeReviewForm }) => {
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    console.log(rating);
-    console.log(review);
     if (formAuthenticated() !== true) {
-      console.log(formAuthenticated());
+      // console.log(formAuthenticated());
       setFormError(!formAuthenticated());
       return;
     }
     // Add a new document in collection "cities"
-    console.log("rating:", rating);
-    console.log("handle Submit");
+    // console.log("rating:", rating);
+    // console.log("handle Submit");
     dispatch(submitReview(record, rating, review, stars, currentUser));
-    console.log("dispatch Submit");
+    // console.log("dispatch Submit");
     closeReviewForm();
     setLoading(false);
   };

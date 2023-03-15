@@ -3,8 +3,8 @@ import { Review } from '.';
 import classes from "./ReviewsList.module.css";
 
 export const ReviewsList = ({ reviews, showRestaurant }) => {
-    console.log('ReviewsList line 6');
-    console.log(reviews);
+    // console.log('ReviewsList line 6');
+    // console.log(reviews);
   return (
     <div>
         <div className={classes['review-thread']}>

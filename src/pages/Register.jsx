@@ -49,7 +49,7 @@ const Register = () => {
       email: email,
       timeStamp: serverTimestamp(),
     });
-    console.log(newUser);
+    // console.log(newUser);
     dispatch(transformAuthenticatedUser(user.uid));
     navigate("/");
   };

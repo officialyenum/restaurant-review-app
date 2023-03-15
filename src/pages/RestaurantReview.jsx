@@ -30,7 +30,7 @@ const RestaurantReview = () => {
     navigate(`/login?ref=/review/${id}`);
   };
 
-  console.log(record);
+  // console.log(record);
 
   function randomIntFromInterval(min, max) {
     // min and max included
