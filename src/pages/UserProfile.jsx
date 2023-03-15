@@ -18,11 +18,8 @@ const UserProfile = () => {
     dispatch(getReviewsByAuthUser(id));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
-  console.log("user_name", reviews[0]?.user.fullName);
-  console.log("user_id", id);
 
   const currentUser = useSelector((state) => state.auth.currentUser);
-  console.log(currentUser);
   const isCurrentUserProfile = id === currentUser?.id;
 
   return (
