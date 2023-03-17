@@ -69,15 +69,10 @@ export const ReviewForm = ({ record, closeReviewForm }) => {
     e.preventDefault();
     setLoading(true);
     if (formAuthenticated() !== true) {
-      // console.log(formAuthenticated());
       setFormError(!formAuthenticated());
       return;
     }
-    // Add a new document in collection "cities"
-    // console.log("rating:", rating);
-    // console.log("handle Submit");
     dispatch(submitReview(record, rating, review, stars, currentUser));
-    // console.log("dispatch Submit");
     closeReviewForm();
     setLoading(false);
   };

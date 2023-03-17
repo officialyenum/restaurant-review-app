@@ -8,7 +8,7 @@ const authSlice = createSlice({
     },
     reducers: {
         authenticateUser(state, action){
-            console.log("Document payload:", action.payload);
+            // console.log("Document payload:", action.payload);
             state.currentUser = {
                 id: action.payload.id,
                 fullName: action.payload.fullName,
