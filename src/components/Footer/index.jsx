@@ -18,15 +18,15 @@ export const Footer = () => {
         <div className={classes.col}>
           <h3 className={classes.col_header}>Contact Us</h3>
           <div className={classes.icon_flex}>
-            <i class="fa-solid fa-location-dot"></i>
+            <i className="fa-solid fa-location-dot"></i>
             <p>Location: Bristol UK</p>
           </div>
           <div className={classes.icon_flex}>
-            <i class="fa-solid fa-phone"></i>
+            <i className="fa-solid fa-phone"></i>
             <p>Phone Number: +01000100</p>
           </div>
           <div className={classes.icon_flex}>
-            <i class="fa-solid fa-envelope"></i>
+            <i className="fa-solid fa-envelope"></i>
             <p>Email: contact@foodhygienereview.com</p>
           </div>
         </div>
@@ -46,16 +46,16 @@ export const Footer = () => {
           <div className={classes.follow_section}>
             <p>Follow Us: </p>
             <a href="##" target="_blank" className={classes.icon}>
-              <i class="fa-brands fa-facebook"></i>
+              <i className="fa-brands fa-facebook"></i>
             </a>
             <a href="##" target="_blank" className={classes.icon}>
-              <i class="fa-brands fa-twitter"></i>
+              <i className="fa-brands fa-twitter"></i>
             </a>
             <a href="##" target="_blank" className={classes.icon}>
-              <i class="fa-brands fa-instagram"></i>
+              <i className="fa-brands fa-instagram"></i>
             </a>
             <a href="##" target="_blank" className={classes.icon}>
-              <i class="fa-brands fa-linkedin"></i>
+              <i className="fa-brands fa-linkedin"></i>
             </a>
           </div>
         </div>
